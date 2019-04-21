@@ -17,6 +17,9 @@ namespace Simple.Pages
             _db = db;
         }
 
+        [TempData]
+        public string Message { get; set; }
+
         public IList<Customer> Customers { get; set; } = new List<Customer>();
 
         public async Task OnGetAsync()
