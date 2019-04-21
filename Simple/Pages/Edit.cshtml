@@ -1,0 +1,19 @@
+﻿@page "{id:int}"
+@model Simple.Pages.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Customer - @Model.Customer.Id</h2>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Customer.Id" hidden />
+    <div>
+        <label asp-for="Customer.Name"/>
+        <input asp-for="Customer.Name"/>
+        <span asp-validation-for="Customer.Name"></span>
+    </div>
+    <input type="submit" value="Save" />
+</form>
+

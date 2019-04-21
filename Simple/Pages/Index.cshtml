@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <form method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Customers.Count > 0)
+                {
+                    @foreach (var item in Model.Customers)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>
+                                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                                <button type="submit" asp-page-handler="delete" asp-route-id="@item.Id">delete</button>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <a asp-page="./Create">Create</a>
+    </form>
+</div>
